@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contenido - Proyecto IFCT0110</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <!-- Floating Nav -->
+        <nav class="nav-bar animate-fade-in"
+            style="position: sticky; top: 0; background: var(--dark-bg); z-index: 100; padding: 1rem 0; border-bottom: 1px solid var(--glass-border); margin-bottom: 3rem;">
+            <a href="indice.html" class="nav-link">← Volver al Índice</a>
+            <span style="color: var(--primary);">Proyecto IFCT0110</span>
+        </nav>
+
+        <!-- INTRO -->
+        <section id="intro" class="animate-fade-in">
+            <h1 class="text-gradient">1. Presentación y Objetivos</h1>
+            <div class="glass-card">
+                <p>El objetivo principal de este bloque de prácticas, desarrollado dentro del módulo formativo del
+                    certificado <strong>IFCT0110</strong>, ha sido la capacitación técnica para el despliegue de
+                    infraestructuras informáticas básicas.</p>
+                <br>
+                <p>El proyecto abarca desde la preparación del hardware y la instalación de un sistema operativo moderno
+                    (<strong>Windows 11</strong>), hasta la implementación de tecnologías de virtualización. Finalmente,
+                    se ha configurado una arquitectura Cliente-Servidor utilizando el protocolo <strong>FTP</strong>
+                    para verificar la conectividad y la transferencia de datos segura entre diferentes nodos de la red
+                    (físicos y virtuales), simulando un entorno de red departamental real.</p>
+            </div>
+        </section>
+
+        <!-- DESARROLLO -->
+        <h1 class="text-gradient animate-fade-in delay-1" style="margin-top: 4rem;">2. Desarrollo Paso a Paso</h1>
+
+        <!-- Actividad 1 -->
+        <section id="act1" class="animate-fade-in delay-1">
+            <h2 style="color: var(--secondary);">2.1 Actividad 1: Despliegue del Host</h2>
+            <div class="glass-card">
+                <p style="margin-bottom: 1.5rem;">En esta fase inicial, se preparó la estación de trabajo física para
+                    soportar el sistema operativo Windows 11.</p>
+
+                <h3>Procedimiento Clave:</h3>
+                <ul style="margin-left: 1.5rem;">
+                    <li><strong>Obtención de ISO:</strong> Descarga oficial desde Microsoft y creación de USB booteable.
+                    </li>
+                    <li><strong>Gestión de Licencias:</strong> Extracción y resguardo de la Product Key original vía
+                        consola.</li>
+                    <li><strong>Configuración BIOS/UEFI:</strong>
+                        <ul style="margin-left: 1.5rem; margin-top: 0.5rem; color: #fff;">
+                            <li>Prioridad de arranque USB.</li>
+                            <li><span style="color: #fca5a5;">CRÍTICO:</span> Habilitación de virtualización (VT-x /
+                                AMD-V) para soporte de 64 bits.</li>
+                        </ul>
+                    </li>
+                    <li><strong>Instalación:</strong> Particionado y configuración inicial de Windows 11.</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Actividad 2 -->
+        <section id="act2" class="animate-fade-in delay-2">
+            <h2 style="color: var(--secondary);">2.2 Actividad 2: Entorno Virtual</h2>
+            <div class="glass-card">
+                <p>Creación de un entorno aislado para pruebas mediante <strong>Oracle VM VirtualBox</strong>.</p>
+                <br>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
+                    <div>
+                        <h3>Instalación Hipervisor</h3>
+                        <p>Instalación de VirtualBox + <strong>Extension Pack</strong> (Soporte USB 2.0/3.0 y mejoras de
+                            red).</p>
+                    </div>
+                    <div>
+                        <h3>Máquina Guest</h3>
+                        <p>Asignación de recursos (RAM, CPU, VDI) e instalación limpia de Windows 11 virtualizado.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Actividad 3 -->
+        <section id="act3" class="animate-fade-in delay-2">
+            <h2 style="color: var(--secondary);">2.3 Actividad 3: FTP y Redes</h2>
+            <div class="glass-card">
+                <p>Establecimiento de comunicación de red departamental usando <strong>FileZilla</strong>.</p>
+
+                <h3 style="margin-top: 1.5rem;">Configuración de Red (Modo Puente)</h3>
+                <p>Se configuró la VM en modo <strong>"Bridged Adapter"</strong>. Esto asigna una IP real de la red del
+                    aula a la máquina virtual, haciéndola visible como un dispositivo físico más.</p>
+
+                <h3 style="margin-top: 1.5rem;">Matriz de Pruebas Realizadas</h3>
+                <div style="background: rgba(0,0,0,0.3); padding: 1rem; border-radius: 0.5rem; margin-top: 0.5rem;">
+                    <ul style="list-style: none;">
+                        <li style="margin-bottom: 2rem;">
+                            <p><strong>1. Host (Local) ↔ Guest (Virtual)</strong></p>
+                            <p style="font-size: 0.9rem; margin-bottom: 0.5rem;">✅ Conexión establecida y transferencia
+                                exitosa.</p>
+                            <img src="img/FTP Host_Own-Guest_Own.png" alt="Prueba FTP Host Local a Guest Local"
+                                class="img-fluid">
+                        </li>
+                        <hr style="border-color: var(--glass-border); margin: 1.5rem 0;">
+
+                        <li style="margin-bottom: 2rem;">
+                            <p><strong>2. Host (Mío) → Host (Compañero)</strong></p>
+                            <p style="font-size: 0.9rem; margin-bottom: 0.5rem;">✅ Visibilidad entre equipos físicos en
+                                la red.</p>
+                            <img src="img/FTP Host_own-Host_Neighbor.png" alt="Prueba FTP Host Propio a Host Vecino"
+                                class="img-fluid">
+                        </li>
+                        <hr style="border-color: var(--glass-border); margin: 1.5rem 0;">
+
+                        <li style="margin-bottom: 2rem;">
+                            <p><strong>3. Virtual (Mía) → Host (Compañero)</strong></p>
+                            <p style="font-size: 0.9rem; margin-bottom: 0.5rem;">✅ La VM puede acceder a recursos
+                                físicos externos.</p>
+                            <img src="img/FTP Guest_Own-Host_Neighbor.png" alt="Prueba FTP Guest Propio a Host Vecino"
+                                class="img-fluid">
+                        </li>
+                        <hr style="border-color: var(--glass-border); margin: 1.5rem 0;">
+
+                        <li style="margin-bottom: 2rem;">
+                            <p><strong>4. Host (Mío) → Virtual (Compañero)</strong></p>
+                            <p style="font-size: 0.9rem; margin-bottom: 0.5rem;">✅ El Host puede acceder a VMs en otros
+                                equipos (Bridged Mode).</p>
+                            <img src="img/FTP Host_Own-Guest_Neighbor.png" alt="Prueba FTP Host Propio a Guest Vecino"
+                                class="img-fluid">
+                        </li>
+                        <hr style="border-color: var(--glass-border); margin: 1.5rem 0;">
+
+                        <li style="margin-bottom: 2rem;">
+                            <p><strong>5. Virtual (Mía) → Virtual (Compañero)</strong></p>
+                            <p style="font-size: 0.9rem; margin-bottom: 0.5rem;">✅ Conexión directa entre máquinas
+                                virtuales de distintos anfitriones.</p>
+                            <img src="img/FTP Guest_Own-Guest_Neighbor.png" alt="Prueba FTP Guest Propio a Guest Vecino"
+                                class="img-fluid">
+                        </li>
+                        <hr style="border-color: var(--glass-border); margin: 1.5rem 0;">
+
+                        <li style="margin-bottom: 2rem;">
+                            <p><strong>6. Virtual (Mía) → Host (Mío)</strong></p>
+                            <p style="font-size: 0.9rem; margin-bottom: 0.5rem;">✅ Comprobación de conectividad inversa
+                                (Guest a Host).</p>
+                            <img src="img/FTP Guest_Own-Host_Own.png" alt="Prueba FTP Guest Propio a Host Propio"
+                                class="img-fluid">
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- CONCLUSION -->
+        <section id="conclusion" class="animate-fade-in delay-3">
+            <h1 class="text-gradient" style="margin-top: 4rem;">3. Conclusión</h1>
+            <div class="glass-card" style="border-left: 4px solid var(--secondary);">
+                <p>La realización de estas prácticas en el CIFO La Violeta ha permitido consolidar competencias
+                    fundamentales:</p>
+                <ul style="margin-left: 1.5rem; margin-top: 1rem;">
+                    <li>Dominio de instalación limpia y gestión de BIOS.</li>
+                    <li>Comprensión profunda de la virtualización de laboratorios.</li>
+                    <li>Gestión de redes mixtas (Físicas + Virtuales).</li>
+                    <li>Implementación real de arquitectura Cliente-Servidor (FTP).</li>
+                </ul>
+                <p style="margin-top: 1.5rem; font-weight: bold; color: white;">Este módulo establece la base técnica
+                    necesaria para la operación avanzada de redes departamentales.</p>
+            </div>
+        </section>
+
+        <div class="text-center" style="margin: 4rem 0;">
+            <a href="index.html" class="btn">Volver al Inicio</a>
+        </div>
+    </div>
+</body>
+
+</html>
