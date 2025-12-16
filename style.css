@@ -246,3 +246,24 @@ li {
 .relative {
     position: relative;
 }
+
+/* 1. Color normal del enlace */
+a {
+    color: #3498db; /* Azul */
+    text-decoration: none; /* Opcional: quita el subrayado */
+}
+
+/* 2. Color cuando pasas el mouse por encima (Hover) */
+a:hover {
+    color: #e74c3c; /* Rojo */
+}
+
+/* 3. Color cuando el enlace ya fue visitado */
+a:visited {
+    color: #8e44ad; /* Morado */
+}
+
+/* 4. Color justo en el momento del clic */
+a:active {
+    color: #2ecc71; /* Verde */
+}

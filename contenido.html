@@ -45,10 +45,26 @@
 
                 <h3>Procedimiento Detallado:</h3>
                 <ul style="margin-left: 1.5rem;">
-                    <li><strong>Obtención de ISO:</strong> Descarga oficial desde Microsoft y creación de USB booteable.
+                    <li><strong>Obtención de la Imagen ISO:</strong>
+                        <ul style="margin-left: 1.5rem; margin-top: 0.5rem; color: #94a3b8;">
+                            <li>Se accedió al portal oficial de Microsoft para descargar la imagen de disco (ISO) de Windows 11.</li>
+                            <li>URL de descarga: <a href="https://www.microsoft.com/es-es/software-download/windows11">https://www.microsoft.com/es-es/software-download/windows11</a></li>
+                            <li>Se utilizó la herramienta Rufus para la creacion de la USB booteable (memoria flash USB de al menos 8GB).</li>
+                        </ul>
                     </li>
-                    <li><strong>Gestión de Licencias:</strong> Extracción y resguardo de la Product Key original vía
-                        consola.</li>
+                    <li><strong>Gestión de Licencias (Extracción de Clave):</strong>
+                        <ul style="margin-left: 1.5rem; margin-top: 0.5rem; color: #94a3b8;">
+                            <li>Previo al formateo, se procedió a extraer la clave de producto (Product Key) embebida en la BIOS/UEFI del equipo 
+                                para garantizar la reactivación legal del software.</li>
+                            <li>Se ejecutó PowerShell (o Símbolo del sistema) con permisos de administrador y 
+                                se introdujo el siguiente comando: <code> (Get-WmiObject -query 'select * from SoftwareLicensingService').OA3xOriginalProductKey</code>
+                            <p style="font-size: 0.9rem; margin-bottom: 0.5rem;">✅ (Get-WmiObject -query 'select * from SoftwareLicensingService').OA3xOriginalProductKey
+                            <img src="img/FTP Host_Own-Guest_Own.png" alt="Prueba FTP Host Local a Guest Local"
+                                class="img-fluid">
+                            </li>
+                            <li>Se copió la clave obtenida y se guardó en un archivo de texto para su posterior uso.</li>
+                        </ul>
+                    </li>
                     <li><strong>Configuración BIOS/UEFI:</strong>
                         <ul style="margin-left: 1.5rem; margin-top: 0.5rem; color: #fff;">
                             <li>Prioridad de arranque USB.</li>
